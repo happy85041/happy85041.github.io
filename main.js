@@ -2359,6 +2359,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         this.errorMessage = "";
+        debugger;
         if (this.model.Name) {
             if (this.model.Password) {
                 this.signIn();
@@ -2380,7 +2381,7 @@ var LoginComponent = /** @class */ (function () {
                 if (isValid.length > 0) {
                     _this.localStrorageService.RemoveItem();
                     _this.localStrorageService.SetItem(_this.model.Name);
-                    _this.router.navigate(['/']);
+                    _this.router.navigate(['']);
                 }
                 else {
                     _this.errorMessage = "Invalid Login Credentials";
