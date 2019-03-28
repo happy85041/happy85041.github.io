@@ -2107,7 +2107,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\r\n\r\nbody { \r\n  margin: 0;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n}\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQTtFQUNFLFNBQVM7RUFDVCx5Q0FBeUM7QUFDM0MiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuYm9keSB7IFxyXG4gIG1hcmdpbjogMDtcclxuICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -2118,7 +2118,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<router-outlet></router-outlet>\n"
+module.exports = "\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -2139,6 +2139,7 @@ __webpack_require__.r(__webpack_exports__);
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'ChatApp';
+        this.IsLogin = false;
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2321,7 +2322,7 @@ module.exports = "\r\n/* BASIC */\r\n\r\nhtml {\r\n    background-color: #56baed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"wrapper fadeInDown\">\n  <div id=\"formContent\">\n      <div class=\"fadeIn first\">\n          <img src=\"../../assets/login.png\" id=\"icon\" alt=\"User Icon\" />\n        </div>\n        <form name=\"form\" (ngSubmit)=\"login()\" #f=\"ngForm\">   \n            <input type=\"text\" id=\"login\" [(ngModel)]=\"model.Name\" name=\"login\" placeholder=\"login\">\n            <input type=\"password\" id=\"password\"  [(ngModel)]=\"model.Password\"name=\"login\" placeholder=\"password\">\n            <div>\n            <input type=\"submit\" class=\"fadeIn fourth\" value=\"Log In\">\n          </div>\n          </form>\n      <p style=\"color: #D8000C;background-color: #FFD2D2;\">{{errorMessage}}</p>\n  </div>\n</div>\n         \n          "
+module.exports = "\n<div class=\"header\">\n        <a href=\"#default\" class=\"logo\">ChatApp</a>\n        <div class=\"header-right\" >\n            \n        </div>\n    </div>\n<div class=\"wrapper fadeInDown\">\n  <div id=\"formContent\">\n      <div class=\"fadeIn first\">\n          <img src=\"../../assets/login.png\" id=\"icon\" alt=\"User Icon\" />\n        </div>\n        <form name=\"form\" (ngSubmit)=\"login()\" #f=\"ngForm\">   \n            <input type=\"text\" id=\"login\" [(ngModel)]=\"model.Name\" name=\"login\" placeholder=\"login\">\n            <input type=\"password\" id=\"password\"  [(ngModel)]=\"model.Password\"name=\"login\" placeholder=\"password\">\n            <div>\n            <input type=\"submit\" class=\"fadeIn fourth\" value=\"Log In\">\n          </div>\n          </form>\n      <p style=\"color: #D8000C;background-color: #FFD2D2;\">{{errorMessage}}</p>\n  </div>\n</div>\n         \n          "
 
 /***/ }),
 
@@ -2446,7 +2447,7 @@ module.exports = ".container{max-width:1170px; margin:auto;}\r\nimg{ max-width:1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"App\">\n\n\t\t<div class=\"container\">\n\t\t\t\t<h5 class=\" text-center\">Messaging</h5>\n\t\t\t\t<div class=\"messaging\">\n\t\t\t\t\t  <div class=\"inbox_msg\">\n\t\t\t\t\t\t<div class=\"mesgs\">\n\t\t\t\t\t\t  <div class=\"msg_history\" style=\"overflow: scroll; height: xyz;\" #scrollMe [scrollTop]=\"scrollMe.scrollHeight\">\n\t\t\t\t\t\t\t  <div *ngFor=\"let message of messages\" >\n\t\t\t\t\t\t\t<div class=\"incoming_msg\" *ngIf=\"(message.senderId != userId)\">\n\t\t\t\t\t\t\t  <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>\n\t\t\t\t\t\t\t  <div class=\"received_msg\" >\n\t\t\t\t\t\t\t\t<div class=\"received_withd_msg\">\n\t\t\t\t\t\t\t\t  <p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t  <span class=\"time_date\">{{message.createdAt}}</span></div>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"outgoing_msg\"*ngIf=\"(message.senderId == userId)\">\n\t\t\t\t\t\t\t  <div class=\"sent_msg\">\n\t\t\t\t\t\t\t\t<p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t<span class=\"time_date\">{{message.createdAt.toString()}}</span> </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t  <div class=\"type_msg\">\n\t\t\t\t\t\t\t<div class=\"input_msg_write\">\n\t\t\t\t\t\t\t  <input type=\"text\" class=\"write_msg\" placeholder=\"Type a message\" name=\"message\" [(ngModel)]=\"newMessage\" (keyup)='onKey($event)' autocomplete=\"off\"/>\n\t\t\t\t\t\t\t  <button class=\"msg_send_btn\" type=\"button\" (click)='sendMessage()'><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div></div>\n\n\n</div>"
+module.exports = "\n<div class=\"header\">\n\t\t<a href=\"#default\" class=\"logo\">ChatApp</a>\n\t\t<div class=\"header-right\" >\n\t\t\t<a class=\"active\" (click)='LogOut()'>LogOut</a>      \n\t\t</div>\n\t</div>\n<div class=\"App\">\n\t\t\n\t\t<div class=\"container\">\t\t\t\n\t\t\t\t<div class=\"messaging\">\n\t\t\t\t\t  <div class=\"inbox_msg\">\n\t\t\t\t\t\t<div class=\"mesgs\">\n\t\t\t\t\t\t  <div class=\"msg_history\" style=\"overflow: scroll; height: xyz;\" #scrollMe [scrollTop]=\"scrollMe.scrollHeight\">\n\t\t\t\t\t\t\t  <div *ngFor=\"let message of messages\" >\n\t\t\t\t\t\t\t<div class=\"incoming_msg\" *ngIf=\"(message.senderId != userId)\">\n\t\t\t\t\t\t\t  <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>\n\t\t\t\t\t\t\t  <div class=\"received_msg\" >\n\t\t\t\t\t\t\t\t<div class=\"received_withd_msg\">\n\t\t\t\t\t\t\t\t  <p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t  <span class=\"time_date\">{{message.createdAt}}</span></div>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"outgoing_msg\"*ngIf=\"(message.senderId == userId)\">\n\t\t\t\t\t\t\t  <div class=\"sent_msg\">\n\t\t\t\t\t\t\t\t<p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t<span class=\"time_date\">{{message.createdAt.toString()}}</span> </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t  <div class=\"type_msg\">\n\t\t\t\t\t\t\t<div class=\"input_msg_write\">\n\t\t\t\t\t\t\t  <input type=\"text\" class=\"write_msg\" placeholder=\"Type a message\" name=\"message\" [(ngModel)]=\"newMessage\" (keyup)='onKey($event)' autocomplete=\"off\"/>\n\t\t\t\t\t\t\t  <button class=\"msg_send_btn\" type=\"button\" (click)='sendMessage()'><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div></div>\n</div>"
 
 /***/ }),
 
@@ -2498,6 +2499,10 @@ var UserComponent = /** @class */ (function () {
             this.addUser();
         }
     }
+    UserComponent.prototype.LogOut = function () {
+        this.localStrorageService.RemoveItem();
+        this.router.navigate(['/login']);
+    };
     UserComponent.prototype.connectToRoom = function (id) {
         var _this = this;
         this.messages = [];
