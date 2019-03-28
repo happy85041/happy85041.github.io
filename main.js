@@ -2446,7 +2446,7 @@ module.exports = ".container{max-width:1170px; margin:auto;}\r\nimg{ max-width:1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"App\">\n\n\t\t<div class=\"container\">\n\t\t\t\t<h5 class=\" text-center\">Messaging</h5>\n\t\t\t\t<div class=\"messaging\">\n\t\t\t\t\t  <div class=\"inbox_msg\">\n\t\t\t\t\t\t<div class=\"mesgs\">\n\t\t\t\t\t\t  <div class=\"msg_history\" style=\"overflow: scroll; height: xyz;\" #scrollMe [scrollTop]=\"scrollMe.scrollHeight\">\n\t\t\t\t\t\t\t  <div *ngFor=\"let message of messages\" >\n\t\t\t\t\t\t\t<div class=\"incoming_msg\" *ngIf=\"(message.senderId != userId)\">\n\t\t\t\t\t\t\t  <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>\n\t\t\t\t\t\t\t  <div class=\"received_msg\" >\n\t\t\t\t\t\t\t\t<div class=\"received_withd_msg\">\n\t\t\t\t\t\t\t\t  <p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t  <span class=\"time_date\">just now</span></div>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"outgoing_msg\"*ngIf=\"(message.senderId == userId)\">\n\t\t\t\t\t\t\t  <div class=\"sent_msg\">\n\t\t\t\t\t\t\t\t<p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t<span class=\"time_date\">just now</span> </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t  <div class=\"type_msg\">\n\t\t\t\t\t\t\t<div class=\"input_msg_write\">\n\t\t\t\t\t\t\t  <input type=\"text\" class=\"write_msg\" placeholder=\"Type a message\" name=\"message\" [(ngModel)]=\"newMessage\" (keyup)='onKey($event)' autocomplete=\"off\"/>\n\t\t\t\t\t\t\t  <button class=\"msg_send_btn\" type=\"button\" (click)='sendMessage()'><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div></div>\n\n\n</div>"
+module.exports = "<div class=\"App\">\n\n\t\t<div class=\"container\">\n\t\t\t\t<h5 class=\" text-center\">Messaging</h5>\n\t\t\t\t<div class=\"messaging\">\n\t\t\t\t\t  <div class=\"inbox_msg\">\n\t\t\t\t\t\t<div class=\"mesgs\">\n\t\t\t\t\t\t  <div class=\"msg_history\" style=\"overflow: scroll; height: xyz;\" #scrollMe [scrollTop]=\"scrollMe.scrollHeight\">\n\t\t\t\t\t\t\t  <div *ngFor=\"let message of messages\" >\n\t\t\t\t\t\t\t<div class=\"incoming_msg\" *ngIf=\"(message.senderId != userId)\">\n\t\t\t\t\t\t\t  <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>\n\t\t\t\t\t\t\t  <div class=\"received_msg\" >\n\t\t\t\t\t\t\t\t<div class=\"received_withd_msg\">\n\t\t\t\t\t\t\t\t  <p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t  <span class=\"time_date\">{{message.createdAt}}</span></div>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"outgoing_msg\"*ngIf=\"(message.senderId == userId)\">\n\t\t\t\t\t\t\t  <div class=\"sent_msg\">\n\t\t\t\t\t\t\t\t<p>{{ message.text }}</p>\n\t\t\t\t\t\t\t\t<span class=\"time_date\">{{message.createdAt.toString()}}</span> </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t  <div class=\"type_msg\">\n\t\t\t\t\t\t\t<div class=\"input_msg_write\">\n\t\t\t\t\t\t\t  <input type=\"text\" class=\"write_msg\" placeholder=\"Type a message\" name=\"message\" [(ngModel)]=\"newMessage\" (keyup)='onKey($event)' autocomplete=\"off\"/>\n\t\t\t\t\t\t\t  <button class=\"msg_send_btn\" type=\"button\" (click)='sendMessage()'><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div></div>\n\n\n</div>"
 
 /***/ }),
 
@@ -2507,6 +2507,7 @@ var UserComponent = /** @class */ (function () {
             messageLimit: 100,
             hooks: {
                 onMessage: function (message) {
+                    message.createdAt = new Date(message.createdAt).toString().replace("GMT+0530 (India Standard Time)", "");
                     _this.messages.push(message);
                 },
                 onPresenceChanged: function () {
@@ -2526,7 +2527,6 @@ var UserComponent = /** @class */ (function () {
     };
     UserComponent.prototype.addUser = function () {
         var _this = this;
-        debugger;
         var userId = this.userId;
         var tokenProvider = new _pusher_chatkit_client__WEBPACK_IMPORTED_MODULE_2___default.a.TokenProvider({
             url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/f5a23db4-810f-4bed-8737-f6d3b3d7c67f/token'
