@@ -2082,7 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: 'user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_4__["UserComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
-    { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] }
+    { path: '', component: _user_user_component__WEBPACK_IMPORTED_MODULE_4__["UserComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -2359,7 +2359,6 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         this.errorMessage = "";
-        debugger;
         if (this.model.Name) {
             if (this.model.Password) {
                 this.signIn();
@@ -2381,7 +2380,7 @@ var LoginComponent = /** @class */ (function () {
                 if (isValid.length > 0) {
                     _this.localStrorageService.RemoveItem();
                     _this.localStrorageService.SetItem(_this.model.Name);
-                    _this.router.navigate(['/user']);
+                    _this.router.navigate(['/']);
                 }
                 else {
                     _this.errorMessage = "Invalid Login Credentials";
